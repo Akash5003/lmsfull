@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-header text-center">
+            <h3>New Registration</h3>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm" novalidate>
+              <!-- for Username -->
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" [(ngModel)]="registerData.userName" #username="ngModel" class="form-control" [ngClass]="{'is-invalid': registerForm.submitted && username.invalid}" required>
+                <div class="invalid-feedback">
+                  <div *ngIf="username.errors?.['required']">Username is required</div>
+                </div>
+              </div>
+  
+              <!-- for Name -->
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" [(ngModel)]="registerData.name" #name="ngModel" class="form-control" [ngClass]="{'is-invalid': registerForm.submitted && name.invalid}" required>
+                <div class="invalid-feedback">
+                  <div *ngIf="name.errors?.['required']">Name is required</div>
+                </div>
+              </div>
+  
+              <!-- for Password -->
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" [(ngModel)]="registerData.password" #password="ngModel" class="form-control" [ngClass]="{'is-invalid': registerForm.submitted && password.invalid}" required minlength="4">
+                <div class="invalid-feedback">
+                  <div *ngIf="password.errors?.['required']">Password is required</div>
+                  <div *ngIf="password.errors?.['minlength']">Password must be at least 4 characters</div>
+                </div>
+              </div>
+  
+              <!-- for Role -->
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" name="role" [(ngModel)]="registerData.role" #role="ngModel" class="form-control" [ngClass]="{'is-invalid': registerForm.submitted && role.invalid}" required>
+                  <option value="" disabled selected>Select Role</option>
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+                <div class="invalid-feedback">
+                  <div *ngIf="role.errors?.['required']">Role is required</div>
+                </div>
+              </div>
+  
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">Register</button>
+
+              <p class="text-center mt-3">
+                Already have an account? <a routerLink="/login">Login here</a>
+              </p>
+  
+              <!-- Success and Error Messages -->
+              <div *ngIf="registrationSuccess" class="text-success mt-2">{{ registrationSuccess }}</div>
+              <div *ngIf="registrationError" class="text-danger mt-2">{{ registrationError }}</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

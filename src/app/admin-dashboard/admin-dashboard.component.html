@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h3>Welcome to the Admin Dashboard</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead text-center">As a admin for our library, you can manage various aspects of the library.</p>
+                    
+                    <!-- Books Management Section -->
+                    <h4>Books Management</h4>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item">• View Books</li>
+                        <li class="list-group-item">• Add Books</li>
+                        <li class="list-group-item">• Delete Books</li>
+                    </ul>
+                    <div class="text-center mb-4">
+                        <button (click)="navigateToBooksManagement()" class="btn btn-primary">Click Here</button>
+                    </div>
+
+                    <!-- User Management Section -->
+                    <h4>User Management</h4>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item">• View Users</li>
+                        <li class="list-group-item">• Add Users</li>
+                        <li class="list-group-item">• Delete Users</li>
+                    </ul>
+                    <div class="text-center mb-4">
+                        <a routerLink="/user-management" class="btn btn-primary">Click Here</a>
+                    </div>
+
+                    <!-- Borrow History Management Section -->
+                    <h4>Borrow History Management</h4>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item">• View Borrow History</li>
+                        <li class="list-group-item">• Delete Borrow History</li>
+                    </ul>
+                    <div class="text-center">
+                        <a routerLink="/borrow-history-management" class="btn btn-primary">Click Here</a>
+                    </div>&nbsp;
+
+                    <div class="text-center">
+                        <a routerLink="/login" class="btn btn-secondary">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

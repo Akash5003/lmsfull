@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-header text-center">
+            <h3>Login to library</h3>
+          </div>
+          <div class="card-body">
+            <form name="loginForm" #f="ngForm" (ngSubmit)="f.form.valid && onLogin()" novalidate>
+              <!-- for Username -->
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" [(ngModel)]="loginData.username" #username="ngModel" class="form-control" [ngClass]="{'is-invalid': f.submitted && username.invalid}" required>
+                <div class="invalid-feedback">
+                  <div *ngIf="username.errors?.['required']">Username is required</div>
+                </div>
+              </div>
+  
+              <!-- for Password -->
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" [(ngModel)]="loginData.password" #password="ngModel" class="form-control" [ngClass]="{'is-invalid': f.submitted && password.invalid}" required minlength="4">
+                <div class="invalid-feedback">
+                  <div *ngIf="password.errors?.['required']">Password is required</div>
+                  <div *ngIf="password.errors?.['minlength']">Password must be at least 4 characters</div>
+                </div>
+              </div>&nbsp;
+  
+              <!-- for Buttons -->
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Login</button>&nbsp;
+                <button type="button" class="btn btn-secondary" (click)="onRegister()">New Registration</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

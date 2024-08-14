@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card mt-5">
+          <div class="card-header text-center">
+            <h3>Available Books</h3>
+          </div>
+          <div class="card-body">
+            <!-- Error and Success Messages -->
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  
+            <!-- Books Table -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Book Id</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>language</th>
+                  
+                  <!-- <th>Actions</th> -->
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of books;let i=index">
+                  <td>{{ i+1 }}</td>
+                  <td>{{ book.id }}</td>
+                  <td>{{ book.bookTitle }}</td>
+                  <td>{{ book.authorName }}</td>
+                  <td>{{ book.language}}</td>
+                  
+                  <!-- <td>
+                    <button class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</button>&nbsp;
+                    <button class="btn btn-danger" (click)="returnBook(book.bookId)">Return</button>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+  
+            <!-- Get Book by ID Section -->
+            <div class="mt-4">
+              <h5>Get Book by ID</h5>
+              <div class="input-group">
+                <input type="number" [(ngModel)]="bookIdToGet" class="form-control" placeholder="Enter Book ID" />
+                <div class="input-group-append">&nbsp;
+                  <button class="btn btn-info" (click)="getBookById()">Get Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
